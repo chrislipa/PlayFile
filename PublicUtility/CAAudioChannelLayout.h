@@ -150,12 +150,12 @@ private:
 	public:
 		static RefCountedLayout *CreateWithNumberChannelDescriptions(unsigned nChannels) {
 								size_t size = CAAudioChannelLayout::CalculateByteSize(nChannels);
-								return new(size) RefCountedLayout(size);
+								return new(size) RefCountedLayout((UInt32)size);
 							}
 
 		static RefCountedLayout *CreateWithLayout(const AudioChannelLayout *layout) {
 								size_t size = CAAudioChannelLayout::CalculateByteSize(layout->mNumberChannelDescriptions);
-								RefCountedLayout *acl = new(size) RefCountedLayout(size);
+								RefCountedLayout *acl = new(size) RefCountedLayout((UInt32)size);
 								memcpy(&acl->mACL, layout, size);
 								return acl;
 							}
