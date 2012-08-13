@@ -61,6 +61,10 @@ int main (int argc, char * const argv[])
 	AudioFileID audioFile;
 	
 	const char* inputFile = argv[1];
+    return playInputFile(inputFile);
+}
+
+int playInputFile(char* inputFile) {
 
 	CFURLRef theURL = CFURLCreateFromFileSystemRepresentation(kCFAllocatorDefault, (UInt8*)inputFile, strlen(inputFile), false);
     XThrowIfError (!theURL, "CFURLCreateFromFileSystemRepresentation");
